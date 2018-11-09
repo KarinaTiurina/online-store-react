@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Image from '~/src/Image';
-import TextBox from '~/src/TextBox';
-import Price from '~/src/Price';
+import ProductCard from '~/src/ProductCard';
 import defaultImageUrl from '~/constants/defaultImageUrl.js'
 
 class App extends Component {
@@ -13,12 +11,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Image src={defaultImageUrl}
+        <ProductCard src={defaultImageUrl}
           alt='image test'
           width='50px'
-          height='50' />
-        <TextBox text='test' />
-        <Price price='10.5' />
+          height='50'
+          text='test'
+          price='10.5' />
       </div>
     );
   }
