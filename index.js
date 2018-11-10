@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ProductCard from '~/src/ProductCard';
-import defaultImageUrl from '~/constants/defaultImageUrl.js'
+import Catalog from '~/src/Catalog';
+import products from '~/constants/products'
 
 class App extends Component {
   constructor(props) {
     super(props)
+
+    this.products = products;
   }
 
   render() {
+    const { products } = this;
+
     return (
       <div>
-        <ProductCard src={defaultImageUrl}
-          alt='image test'
-          width='50px'
-          height='50'
-          text='test'
-          price='10.5' />
+        <Catalog products={products} />
       </div>
     );
   }
