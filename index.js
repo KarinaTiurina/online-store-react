@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Catalog from '~/src/Catalog';
+import CatalogPage from '~/src/CatalogPage';
 import products from '~/constants/products'
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
 
     return (
       <div>
-        <Catalog products={products} />
+        <CatalogPage products={products} />
       </div>
     );
   }
