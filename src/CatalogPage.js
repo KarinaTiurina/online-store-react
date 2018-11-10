@@ -5,12 +5,10 @@ import Catalog from './Catalog';
 class CatalogPage extends Component {
   constructor(props) {
     super(props);
-
-    this.products = props.products;
   }
 
   render() {
-    const { products } = this;
+    const { products } = this.props;
 
     return (
       <div>

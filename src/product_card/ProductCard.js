@@ -7,21 +7,17 @@ import Price from './Price';
 class ProductCard extends Component {
   constructor(props) {
     super(props);
-
-    this.props = props;
   }
 
   render() {
-    const { src, alt, width, height, text, price } = this.props;
+    const { product } = this.props;
 
     return (
       <div>
-        <Image src={src}
-          alt={alt}
-          width={width}
-          height={height} />
-        <TextBox text={text} />
-        <Price price={price} />
+        <Image image={product.image}
+          alt={product.title} />
+        <TextBox text={product.title} />
+        <Price price={product.price} />
       </div>
     );
   }

@@ -5,13 +5,13 @@ import products from '~/constants/products'
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.products = products;
+    this.state = { products };
   }
 
   render() {
-    const { products } = this;
+    const { products } = this.state;
 
     return (
       <div>

@@ -4,12 +4,10 @@ import ReactDOM from 'react-dom';
 class Price extends Component {
   constructor(props) {
     super(props);
-
-    this.price = props.price;
   }
 
   render() {
-    const { price } = this;
+    const { price } = this.props;
 
     return (
       <span>{price}$</span>

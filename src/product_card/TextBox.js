@@ -4,12 +4,10 @@ import ReactDOM from 'react-dom';
 class TextBox extends Component {
   constructor(props) {
     super(props);
-
-    this.text = props.text;
   }
 
   render() {
-    const { text } = this;
+    const { text } = this.props;
 
     return (
       <span>{text}</span>
