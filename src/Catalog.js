@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import ProductCard from './product_card/ProductCard';
 
 class Catalog extends Component {
@@ -16,7 +17,7 @@ class Catalog extends Component {
           {
             products.map((product) => (
               <li key={product.id}>
-                <ProductCard product={product} />
+                <ProductCard {...product} />
               </li>
             ))
           }
@@ -25,5 +26,11 @@ class Catalog extends Component {
     );
   }
 }
+
+Catalog.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape(ProductCard.propTypes)
+  )
+};
 
 export default Catalog;

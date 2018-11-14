@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
@@ -10,17 +10,23 @@ class ProductCard extends Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { image, title, price } = this.props;
 
     return (
       <div>
-        <Image image={product.image}
-          alt={product.title} />
-        <TextBox text={product.title} />
-        <Price price={product.price} />
+        <Image {...image}
+          alt={title} />
+        <TextBox text={title} />
+        <Price price={price} />
       </div>
     );
   }
 }
+
+ProductCard.propTypes = {
+  image: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  price: Price.propTypes.price
+};
 
 export default ProductCard;

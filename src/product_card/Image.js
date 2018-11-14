@@ -8,13 +8,13 @@ class Image extends Component {
   }
 
   render() {
-    const { image, alt } = this.props;
+    const { src, width, height, alt } = this.props;
 
     return (
-      <img src={image.src ? image.src : defaultImageUrl}
+      <img src={src ? src : defaultImageUrl}
         alt={alt}
-        width={image.width ? image.width : '50px'}
-        height={image.height ? image.height : '50px'} />
+        width={width ? width : '50px'}
+        height={height ? height : '50px'} />
     );
   }
 }
