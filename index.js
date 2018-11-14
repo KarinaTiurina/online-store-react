@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import browserContext from './browserContext';
+import bowser from 'bowser';
 import CatalogPage from '~/src/CatalogPage';
 import products from '~/constants/products'
+
+const getBrowser = () => (
+  bowser.getParser(window.navigator.userAgent)
+);
+
+console.log(getBrowser().getPlatform().type);
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +30,8 @@ class App extends Component {
 }
 
 ReactDOM.render(
-  <App />,
+  <browserContext.Provider value={getBrowser()}>
+    <App />
+  </browserContext.Provider>,
   document.getElementById('root')
 );

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
+import BuyButton from './BuyButton';
 
 class ProductCard extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class ProductCard extends Component {
           alt={title} />
         <TextBox text={title} />
         <Price price={price} />
+        <BuyButton />
       </div>
     );
   }
