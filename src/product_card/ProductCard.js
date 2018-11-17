@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
-import BuyButton from './BuyButton';
+import AddToBasket from './add_to_basket';
 
 class ProductCard extends Component {
   constructor(props) {
@@ -15,11 +15,11 @@ class ProductCard extends Component {
 
     return (
       <div>
+        <TextBox text={title} />
         <Image {...image}
           alt={title} />
-        <TextBox text={title} />
         <Price price={price} />
-        <BuyButton />
+        <AddToBasket {...this.props} />
       </div>
     );
   }

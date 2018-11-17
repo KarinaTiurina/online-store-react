@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Catalog from './Catalog';
+import BasketCatalogButton from './basket/basket_catalog_button';
 
 class CatalogPage extends Component {
   constructor(props) {
@@ -12,6 +13,8 @@ class CatalogPage extends Component {
     return (
       <div>
         <Catalog products={products} />
+        <br />
+        <BasketCatalogButton />
       </div>
     );
   }
