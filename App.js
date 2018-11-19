@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.addToBasket = (data, count) => {
+    this.addToBasket = (data) => {
       const basketItems = [...this.state.basketItems, data];
       this.setState({basketItems});
     };
