@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import ProductCard from '~/src/productCard/ProductCard';
+import ProductCard from '~/src/ProductCard';
 
 class Catalog extends Component {
   constructor(props) {

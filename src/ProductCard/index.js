@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Image from '~/src/productCard/Image';
-import TextBox from '~/src/productCard/TextBox';
-import Price from '~/src/productCard/Price';
-import AddToBasket from '~/src/productCard/AddToBasket';
+import Image from '~/src/ProductCard/Image';
+import TextBox from '~/src/ProductCard/TextBox';
+import Price from '~/src/ProductCard/Price';
+import AddToBasket from '~/src/ProductCard/AddToBasket';
 
 class ProductCard extends Component {
   constructor(props) {
