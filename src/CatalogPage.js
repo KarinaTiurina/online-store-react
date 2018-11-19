@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Catalog from './Catalog';
-import BasketCatalogButton from './basket/basket_catalog_button';
+import Catalog from '~src/Catalog';
+import BasketCatalogButton from '~/src/basket/BasketCatalogButton';
 
 class CatalogPage extends Component {
   constructor(props) {

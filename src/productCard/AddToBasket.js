@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import basketContext from '~/context/basket_context';
+import basketContext from '~/context/BasketContext';
 
 class AddToBasket extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class AddToBasket extends Component {
   handleClick(e) {
     const appState = this.context;
 
-    appState.addToBasket(this.props, this.state.count);
+    appState.addToBasket({...this.props, count: this.state.count});
   }
 
   setCount(e) {

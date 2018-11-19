@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import bowser from 'bowser';
-import App from '~/app'
-
-const getBrowser = () => (
-  bowser.getParser(window.navigator.userAgent)
-);
+import App from '~/App'
 
 ReactDOM.render(
   <App />,

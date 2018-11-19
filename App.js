@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import basketContext from './context/basket_context';
+import basketContext from './context/BasketContext';
 import CatalogPage from '~/src/CatalogPage';
 import products from '~/constants/products';
-import basket from '~/constants/basket';
+import basketItems from '~/constants/basketItems';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.addToBasket = (data, count) => {
-      const basket = {...this.state.basket};
-      basket.items.push({data, count});
-      basket.count += count;
-      this.setState({basket});
+      const basketItems = [...this.state.basketItems, data];
+      this.setState({basketItems});
     };
 
-    this.state = { basket, addToBasket: this.addToBasket };
+    this.state = { basketItems, addToBasket: this.addToBasket };
   }
 
   render() {
