@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+
 
 class Price extends Component {
   constructor(props) {
@@ -10,9 +11,14 @@ class Price extends Component {
     const { price } = this.props;
 
     return (
-      <span>{price}$</span>
+      <span>${price}</span>
     );
   }
 }
+
+Price.propTypes = {
+  price: PropTypes.number.isRequired
+};
+
 
 export default Price;
