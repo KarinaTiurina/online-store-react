@@ -10,7 +10,7 @@ class BasketCatalogButton extends Component {
       <basketContext.Consumer>
         {
           (appState) => (
-            <button>Корзина ({itemsCount})</button>
+            <button>Корзина ({itemsCount} шт.)</button>
           )
         }
       </basketContext.Consumer>

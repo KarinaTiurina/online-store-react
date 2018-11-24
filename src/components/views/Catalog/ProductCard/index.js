@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Image from '~/src/ProductCard/Image';
-import TextBox from '~/src/ProductCard/TextBox';
-import Price from '~/src/ProductCard/Price';
-import AddToBasket from '~/src/ProductCard/AddToBasket';
+import Image from './Image';
+import TextBox from './TextBox';
+import Price from './Price';
+import AddToBasket from './AddToBasket';
+import { NavLink } from 'react-router-dom';
+import { productPath } from '~/src/helpers/routes';
 
 class ProductCard extends Component {
   constructor(props) {
@@ -11,13 +13,15 @@ class ProductCard extends Component {
   }
 
   render() {
-    const { image, title, price } = this.props;
+    const { id, image, title, price } = this.props;
 
     return (
       <div>
-        <TextBox text={title} />
-        <Image {...image}
-          alt={title} />
+        <NavLink to={productPath(id)}>
+          <TextBox text={title} />
+          <Image {...image}
+            alt={title} />
+        </NavLink>
         <Price price={price} />
         <AddToBasket {...this.props} />
       </div>
