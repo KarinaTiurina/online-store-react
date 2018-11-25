@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import productsContext from '~/context/ProductsContext';
 import { withRouter, Redirect } from 'react-router-dom';
 import Image from '~/src/components/views/Catalog/ProductCard/Image';
+import Page404 from '~/src/components/views/Page404';
 
 class Info extends Component {
   render() {
@@ -20,7 +21,7 @@ class Info extends Component {
                   alt={product.title} />
               </Fragment>
           ) : (
-            <Redirect to='/404' />
+            <Page404 />
           )
         }
       </div>
