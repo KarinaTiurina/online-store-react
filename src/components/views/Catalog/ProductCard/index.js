@@ -4,7 +4,7 @@ import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
 import AddToBasket from './AddToBasket';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { productPath } from '~/src/helpers/routes';
 
 class ProductCard extends Component {
@@ -17,11 +17,11 @@ class ProductCard extends Component {
 
     return (
       <div>
-        <NavLink to={productPath(id)}>
+        <Link to={productPath(id)}>
           <TextBox text={title} />
           <Image {...image}
             alt={title} />
-        </NavLink>
+        </Link>
         <Price price={price} />
         <AddToBasket {...this.props} />
       </div>
