@@ -1,0 +1,12 @@
+a, a.active, a:visited, a:hover, a:link {
+  color: blue;
+}
+
+a.active {
+  color: green;
+}
+
+.warnMsg {
+  background-color: #FFC107;
+  border-radius: 2px;
+}

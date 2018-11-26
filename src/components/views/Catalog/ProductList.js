@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import ProductCard from '~/src/ProductCard';
+import ProductCard from './ProductCard';
 
-class Catalog extends Component {
+class ProductList extends Component {
   constructor(props) {
     super(props);
   }
@@ -27,10 +27,10 @@ class Catalog extends Component {
   }
 }
 
-Catalog.propTypes = {
+ProductList.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape(ProductCard.propTypes)
   )
 };
 
-export default Catalog;
+export default ProductList;
