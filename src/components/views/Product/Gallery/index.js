@@ -14,6 +14,23 @@ class Gallery extends Component {
     this.changeMainImage = (newId) => {
       this.setState({imageId: newId})
     }
+
+    this.prevImage = this.prevImage.bind(this);
+    this.nextImage = this.nextImage.bind(this);
+  }
+
+  prevImage() {
+    const { images } = this.props;
+    const mainImageIndex = images.findIndex(i => i.id == this.state.imageId);
+    const newIndex = mainImageIndex == 0 ? images.length - 1 : mainImageIndex-1;
+    this.setState({imageId: images[newIndex].id})
+  }
+
+  nextImage() {
+    const { images } = this.props;
+    const mainImageIndex = images.findIndex(i => i.id == this.state.imageId);
+    const newIndex = mainImageIndex == images.length - 1 ? 0 : mainImageIndex+1;
+    this.setState({imageId: images[newIndex].id})
   }
 
   render() {
@@ -23,8 +40,10 @@ class Gallery extends Component {
     return (
       <div>
         <div>
+          <a onClick={this.prevImage}>&larr;</a>
           <Image {...mainImage}
             width='200px' />
+          <a onClick={this.nextImage}>&rarr;</a>
         </div>
         { images.length > 0 ? (
             images.map((image) => (
