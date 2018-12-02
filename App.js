@@ -1,29 +1,50 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Navigation from '~/src/components/views/Navigation';
-import Basket from '~/src/components/containers/Basket';
-import products from '~/constants/products';
 import routes from '~/src/routes';
+import GalleryModal from '~src/components/views/GalleryModal';
 
 const RouteWithSubroutes = (route, key) => (
   <Route key={key} {...route} />
 );
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.previousLocation = this.props.location;
+  }
+
+  componentWillUpdate(nextProps) {
+    const { location } = this.props;
+
+    if (
+      nextProps.history.action !== "POP" &&
+      (!location.state || !location.state.modal)
+    ) {
+      this.previousLocation = this.props.location;
+    }
+  }
+
   render() {
+    const { location } = this.props;
+
+    const isModal = !!(
+      location.state &&
+      location.state.modal &&
+      this.previousLocation !== location
+    );
+
     return (
-      <Basket>
-        <Router>
-          <div>
-            <Navigation />
-            <Switch>
-              {routes.map((route, i) => RouteWithSubroutes(route, i))}
-            </Switch>
-          </div>
-        </Router>
-      </Basket>
+      <div>
+        <Navigation />
+        <Switch>
+          {routes.map((route, i) => RouteWithSubroutes(route, i))}
+        </Switch>
+        {isModal ? <Route path="/images/:id" component={GalleryModal} /> : null}
+      </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

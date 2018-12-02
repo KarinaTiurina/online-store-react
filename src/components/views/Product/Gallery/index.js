@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import Image from './Image';
+import defaultImageUrl from '~/constants/defaultImageUrl'
 
 class Gallery extends Component {
   constructor(props) {
@@ -41,8 +43,14 @@ class Gallery extends Component {
       <div>
         <div>
           <a onClick={this.prevImage}>&larr;</a>
-          <Image {...mainImage}
-            width='200px' />
+            <Link key={mainImage.id} to={{
+              pathname: `/images/${mainImage.id}`,
+              state: { modal: true }
+            }}>
+              <img src={mainImage.src ? mainImage.src : defaultImageUrl}
+                alt='[image]'
+                width='200px' />
+            </Link>
           <a onClick={this.nextImage}>&rarr;</a>
         </div>
         { images.length > 0 ? (
