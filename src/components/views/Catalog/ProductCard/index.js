@@ -13,7 +13,8 @@ class ProductCard extends Component {
   }
 
   render() {
-    const { id, image, title, price } = this.props;
+    const { id, title, price } = this.props;
+    const image = this.props.images[0];
 
     return (
       <div>
@@ -30,7 +31,6 @@ class ProductCard extends Component {
 }
 
 ProductCard.propTypes = {
-  image: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   price: Price.propTypes.price
 };

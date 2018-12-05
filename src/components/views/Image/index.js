@@ -4,34 +4,34 @@ import request from 'superagent';
 import apiBase from '~/constants/apiBase.js';
 import Info from './Info';
 
-class Product extends Component {
+class Image extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { product: null, isLoading: true }
+    this.state = { image: null, isLoading: true }
   }
 
   componentDidMount() {
     request
-      .get(`http://${apiBase}/products/${this.props.match.params.id}`)
+      .get(`http://${apiBase}/images/${this.props.match.params.id}`)
       .end((err, res) => (
         !err ?
-          this.setState({product: res.body, isLoading: false}) :
+          this.setState({image: res.body, isLoading: false}) :
           this.setState({isLoading: false})
       ));
   }
 
   render() {
-    const { product, isLoading } = this.state;
+    const { image, isLoading } = this.state;
 
     return (
       <Fragment>
         { !isLoading &&
-            <Info product={product} />
+            <Info image={image} />
         }
       </Fragment>
     );
   }
 }
 
-export default withRouter(Product);
+export default withRouter(Image);
