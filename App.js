@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import { matchPath } from 'react-router';
+import { parse } from 'qs';
+import store from '~/src/store';
+import prepareData from '~/src/helpers/prepareData';
 import Navigation from '~/src/components/views/Navigation';
 import routes from '~/src/routes';
 import GalleryModal from '~src/components/views/GalleryModal';
@@ -13,6 +17,27 @@ class App extends Component {
     super(props);
 
     this.previousLocation = this.props.location;
+
+    this.historyCb = (location, action = 'PUSH') => {
+      const state = { params: {}, query: {}, routes: [] }
+
+      routes.some((route) => {
+        const match = matchPath(location.pathname, route);
+
+        if (match) {
+          state.routes.push(route);
+          Object.assign(state.params, match.params);
+          Object.assign(state.query, parse(location.search.substr(1)));
+        }
+
+        return match;
+      });
+
+      prepareData(store, state);
+    }
+
+    this.props.history.listen(this.historyCb);
+    this.historyCb(window.location);
   }
 
   componentWillUpdate(nextProps) {

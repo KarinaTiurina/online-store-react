@@ -1,8 +1,12 @@
-import CatalogPage from '~/src/components/views/Catalog';
+import ProductsContainer from '~/src/containers/ProductsContainer';
 import { catalogPath }  from '~/src/helpers/routes';
+import { fetchProducts } from '~/src/actions/Products';
 
 export default {
   path: catalogPath(),
-  component: CatalogPage,
-  exact: true
+  component: ProductsContainer,
+  exact: true,
+  prepareData: (store) => {
+    store.dispatch(fetchProducts());
+  }
 };

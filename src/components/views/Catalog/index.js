@@ -11,6 +11,8 @@ class Catalog extends Component {
     super(props);
 
     this.state = { products: [] }
+
+    console.log(this.props);
   }
 
   componentDidMount() {
