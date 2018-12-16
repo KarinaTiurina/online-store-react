@@ -12,7 +12,7 @@ const receiveProducts = (response) => ({
 });
 
 const errorProducts = () => ({
-  type: types.FETCH_PRODUCTS_FAILURE
+  type: types.FETCH_PRODUCTS_ERROR
 });
 
 export function fetchProducts() {
@@ -23,6 +23,6 @@ export function fetchProducts() {
       .get(`${apiBase}/products`)
       .end((err, response) => {
         err ? dispatch(errorProducts()) : dispatch(receiveProducts(response.body));
-      })
+      });
   }
 }

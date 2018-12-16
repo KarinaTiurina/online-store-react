@@ -16,9 +16,9 @@ class Catalog extends Component {
   }
 
   componentDidMount() {
-    request
-      .get(`http://${apiBase}/products`)
-      .then(({body}) => this.setState({products: body}));
+    console.log('componentDidMount');
+    console.log(this.props);
+    this.setState({products: this.props.items});
   }
 
   render() {

@@ -6,19 +6,14 @@ import Info from './Info';
 
 class Product extends Component {
   constructor(props) {
-    super(props);
+    super(props); 
 
     this.state = { product: null, isLoading: true }
   }
 
   componentDidMount() {
-    request
-      .get(`http://${apiBase}/products/${this.props.match.params.id}`)
-      .end((err, res) => (
-        !err ?
-          this.setState({product: res.body, isLoading: false}) :
-          this.setState({isLoading: false})
-      ));
+    console.log('componentDidMount product');
+    console.log(this.props);
   }
 
   render() {

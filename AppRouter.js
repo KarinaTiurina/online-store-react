@@ -19,7 +19,7 @@ class AppRouter extends Component {
       </Provider>
     );
   }
-}
+} 
 
 // ReactDOM.render(
 //   <DevTools store={store} />,
