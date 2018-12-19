@@ -18,6 +18,7 @@ class Catalog extends Component {
   componentDidMount() {
     console.log('componentDidMount');
     console.log(this.props);
+    console.log(this.state);
     this.setState({products: this.props.items});
   }
 

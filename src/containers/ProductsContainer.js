@@ -7,5 +7,4 @@ const stateToProps = (state) => ({
   error: state.products.error
 });
 
-
 export default connect(stateToProps)(Catalog);

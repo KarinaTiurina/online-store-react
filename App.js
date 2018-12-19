@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import { matchPath } from 'react-router';
-import { parse } from 'qs';
+import historyCb from '~/src/helpers/historyCb';
 import store from '~/src/store';
 import prepareData from '~/src/helpers/prepareData';
 import Navigation from '~/src/components/views/Navigation';
@@ -18,26 +17,17 @@ class App extends Component {
 
     this.previousLocation = this.props.location;
 
-    this.historyCb = (location, action = 'PUSH') => {
-      const state = { params: {}, query: {}, routes: [] }
+    historyCb(window.location);
+  }
 
-      routes.some((route) => {
-        const match = matchPath(location.pathname, route);
+  componentWillMount() {
+    this.unlisten = this.props.history.listen((location, action) => {
+      historyCb(location, action);
+    });
+  }
 
-        if (match) {
-          state.routes.push(route);
-          Object.assign(state.params, match.params);
-          Object.assign(state.query, parse(location.search.substr(1)));
-        }
-
-        return match;
-      });
-
-      prepareData(store, state);
-    }
-
-    this.props.history.listen(this.historyCb);
-    this.historyCb(window.location);
+  componentWillUnmount() { 
+      this.unlisten();
   }
 
   componentWillUpdate(nextProps) {
