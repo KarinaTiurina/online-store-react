@@ -6,22 +6,17 @@ import Info from './Info';
 
 class Product extends Component {
   constructor(props) {
-    super(props); 
-
-    this.state = { product: null, isLoading: true }
-  }
-
-  componentDidMount() {
-    console.log('componentDidMount product');
-    console.log(this.props);
+    super(props);
   }
 
   render() {
-    const { product, isLoading } = this.state;
+    const product = this.props.item;
+    const { isFetching } = this.props;
+    console.log(isFetching);
 
     return (
       <Fragment>
-        { !isLoading &&
+        { !isFetching &&
             <Info product={product} />
         }
       </Fragment>

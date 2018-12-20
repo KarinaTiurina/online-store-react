@@ -1,5 +1,5 @@
 import request from 'superagent';
-import * as types from '~/constants/actionTypes/ProductsActionTypes';
+import * as types from '~/constants/actionTypes/ProductActionTypes';
 import apiBase from '~/constants/apiBase';
 
 const requestProduct = (id) => ({
@@ -21,7 +21,7 @@ export function fetchProduct(id) {
     dispatch(requestProduct(id));
 
     return request
-      .get(`${apiBase}/product/${id}`)
+      .get(`${apiBase}/products/${id}`)
       .end((err, response) => {
         err ? dispatch(errorProduct()) : dispatch(receiveProduct(response.body));
       });
