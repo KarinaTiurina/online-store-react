@@ -5,8 +5,6 @@ import Gallery from './Gallery';
 class Info extends Component {
   render() {
     const { product } = this.props;
-    console.log('info');
-    console.log(product);
 
     return (
       <div>

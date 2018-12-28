@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import historyCb from '~/src/helpers/historyCb';
-import store from '~/src/store';
 import prepareData from '~/src/helpers/prepareData';
 import Navigation from '~/src/components/views/Navigation';
 import routes from '~/src/routes';
