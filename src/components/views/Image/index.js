@@ -7,26 +7,15 @@ import Info from './Info';
 class Image extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { image: null, isLoading: true }
-  }
-
-  componentDidMount() {
-    request
-      .get(`http://${apiBase}/images/${this.props.match.params.id}`)
-      .end((err, res) => (
-        !err ?
-          this.setState({image: res.body, isLoading: false}) :
-          this.setState({isLoading: false})
-      ));
   }
 
   render() {
-    const { image, isLoading } = this.state;
+    const image = this.props.item;
+    const { isFetching } = this.props;
 
     return (
       <Fragment>
-        { !isLoading &&
+        { !isFetching &&
             <Info image={image} />
         }
       </Fragment>

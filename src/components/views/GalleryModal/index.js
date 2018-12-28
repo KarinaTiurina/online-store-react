@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Image from '~/src/components/views/Image';
+import ImageContainer from '~/src/containers/ImageContainer';
 import Page404 from '~/src/components/views/Page404';
 import { withRouter } from 'react-router-dom';
 
@@ -39,7 +39,7 @@ class GalleryModal extends Component {
             border: "2px solid #444"
           }}
         >
-          <Image />
+          <ImageContainer />
           <button type="button" onClick={this.back}>Закрыть</button>
         </div>
       </div>

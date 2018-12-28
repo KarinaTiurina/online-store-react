@@ -12,7 +12,6 @@ class Product extends Component {
   render() {
     const product = this.props.item;
     const { isFetching } = this.props;
-    console.log(isFetching);
 
     return (
       <Fragment>

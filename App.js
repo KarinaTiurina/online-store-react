@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   componentWillUnmount() { 
-      this.unlisten();
+    this.unlisten();
   }
 
   componentWillUpdate(nextProps) {
