@@ -37,7 +37,12 @@ class Gallery extends Component {
 
   render() {
     const { images } = this.props;
-    const mainImage = images.find(i => i.id == this.state.imageId);
+    let mainImage = images.find(i => i.id == this.state.imageId);
+    if (!mainImage) {
+      mainImage = {
+        src: defaultImageUrl
+      }
+    }
 
     return (
       <div>

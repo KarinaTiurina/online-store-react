@@ -7,26 +7,15 @@ import Info from './Info';
 class Product extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { product: null, isLoading: true }
-  }
-
-  componentDidMount() {
-    request
-      .get(`http://${apiBase}/products/${this.props.match.params.id}`)
-      .end((err, res) => (
-        !err ?
-          this.setState({product: res.body, isLoading: false}) :
-          this.setState({isLoading: false})
-      ));
   }
 
   render() {
-    const { product, isLoading } = this.state;
+    const product = this.props.item;
+    const { isFetching } = this.props;
 
     return (
       <Fragment>
-        { !isLoading &&
+        { !isFetching &&
             <Info product={product} />
         }
       </Fragment>

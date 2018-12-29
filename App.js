@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import historyCb from '~/src/helpers/historyCb';
+import prepareData from '~/src/helpers/prepareData';
 import Navigation from '~/src/components/views/Navigation';
 import routes from '~/src/routes';
 import GalleryModal from '~src/components/views/GalleryModal';
@@ -13,6 +15,18 @@ class App extends Component {
     super(props);
 
     this.previousLocation = this.props.location;
+
+    historyCb(window.location);
+  }
+
+  componentWillMount() {
+    this.unlisten = this.props.history.listen((location, action) => {
+      historyCb(location, action);
+    });
+  }
+
+  componentWillUnmount() { 
+    this.unlisten();
   }
 
   componentWillUpdate(nextProps) {

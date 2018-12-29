@@ -9,19 +9,11 @@ import apiBase from '~/constants/apiBase.js';
 class Catalog extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { products: [] }
-  }
-
-  componentDidMount() {
-    request
-      .get(`http://${apiBase}/products`)
-      .then(({body}) => this.setState({products: body}));
   }
 
   render() {
     const message = this.props.location.state;
-    const { products } = this.state;
+    const products = this.props.items;
 
     return (
       <div>

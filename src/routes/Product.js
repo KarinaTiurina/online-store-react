@@ -1,11 +1,12 @@
 import React from 'react';
-
-import ProductPage from '~/src/components/views/Product';
+import { fetchProduct } from '~/src/actions/Product';
+import ProductContainer from '~/src/containers/ProductContainer';
 import { productPath }  from '~/src/helpers/routes';
 
 export default {
   path: productPath(),
-  render: ({ match }) => (
-    <ProductPage id={match.params.id} />
-  )
+  component: ProductContainer,
+  prepareData: (store, query, params) => {
+    store.dispatch(fetchProduct(params.id));
+  }
 };

@@ -1,11 +1,14 @@
 import React from 'react';
-
-import ImagePage from '~/src/components/views/Image';
+import { fetchImage } from '~/src/actions/Image';
+import ImageContainer from '~/src/containers/ImageContainer';
 import { imagePath }  from '~/src/helpers/routes';
+
+// import ImagePage from '~/src/components/views/Image';
 
 export default {
   path: imagePath(),
-  render: ({ match }) => (
-    <ImagePage id={match.params.id} />
-  )
+  component: ImageContainer,
+  prepareData: (store, query, params) => {
+    store.dispatch(fetchImage(params.id));
+  }
 };
