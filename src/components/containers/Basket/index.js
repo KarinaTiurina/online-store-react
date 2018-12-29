@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import basketContext from '~/context/BasketContext';
+import { saveBasketState } from '~/src/helpers/basket';
 
 class Basket extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Basket extends Component {
     this.addToBasket = (data) => {
       const basketItems = [...this.state.basketItems, data];
       this.setState({basketItems});
+      saveBasketState(basketItems);
     };
 
     this.state = { basketItems, addToBasket: this.addToBasket };

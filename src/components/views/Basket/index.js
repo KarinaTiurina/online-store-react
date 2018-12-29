@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import basketContext from '~/context/BasketContext';
 import { Redirect } from 'react-router-dom';
 import { catalogPath } from '~/src/helpers/routes';
 
@@ -7,7 +6,7 @@ class Basket extends Component {
   render() {
     let itemsCount = 0;
     let basketPrice = 0;
-    const basketItems = this.context.basketItems;
+    const basketItems = this.props.basket;
     basketItems.map((item) => {
       basketPrice += item.price * item.count;
       itemsCount += item.count;
@@ -37,7 +36,5 @@ class Basket extends Component {
     );
   }
 }
-
-Basket.contextType = basketContext;
 
 export default Basket;
