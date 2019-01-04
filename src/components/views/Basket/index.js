@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
 import { catalogPath } from '~/src/helpers/routes';
+import OrderForm from './OrderForm/OrderFormContainer';
+import { prepareBasketToOrder } from '~/src/helpers/basket';
 
 class Basket extends Component {
   render() {
@@ -24,6 +26,8 @@ class Basket extends Component {
                   ))
                 }
               </ol>
+              <h3>Оформить заказ</h3>
+              <OrderForm basketItems={prepareBasketToOrder(basketItems)}/>
             </Fragment>
           ) : (
             <Redirect to={{
