@@ -27,7 +27,9 @@ class Basket extends Component {
                 }
               </ol>
               <h3>Оформить заказ</h3>
-              <OrderForm basketItems={prepareBasketToOrder(basketItems)}/>
+              <OrderForm basketItems={prepareBasketToOrder(basketItems)}
+                         clearBasket={this.context.clearBasket}
+              />
             </Fragment>
           ) : (
             <Redirect to={{

@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react';
-import { withFormik, Form } from 'formik';
+import { withFormik, Form, Field } from 'formik';
 
 import TextField from './Text';
 import orderFormFields from '~/constants/orderFormFields';
@@ -20,7 +20,7 @@ class OrderForm extends Component {
               <br />
             </Fragment>
           ))
-        } 
+        }
         <button type='submit'>Заказать</button>
       </Form>
     );

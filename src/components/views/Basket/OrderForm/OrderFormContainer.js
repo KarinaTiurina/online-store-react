@@ -1,6 +1,8 @@
 import React from 'react';
 import { withFormik } from 'formik';
+import request from 'superagent';
 
+import apiBase from '~/constants/apiBase';
 import orderFormFields from '~/constants/orderFormFields';
 import OrderForm from '~/src/components/views/Basket/OrderForm';
 
@@ -22,12 +24,25 @@ const validateForm = (values) => {
 }
 
 const handleSubmit = (values) => {
-  alert(JSON.stringify(values));
+  const { clearBasket } = values;
+  delete values["clearBasket"];
+  request
+    .post(`${apiBase}/orders`)
+    .send(values)
+    .end((err, response) => {
+      if (err)
+        alert("Ошибка. Проверьте правильность введенных данных");
+      else {
+        clearBasket();
+        alert('Спасибо за заказ!');
+      }
+    });
 }
 
 const OrderFormContainer = withFormik({
-  mapPropsToValues: ({ basketItems }) => ({
-    basketItems: basketItems
+  mapPropsToValues: ({ basketItems, clearBasket }) => ({
+    basketItems: basketItems,
+    clearBasket: clearBasket
   }),
   handleSubmit: (values) => handleSubmit(values),
   validate: (values) => validateForm(values)
