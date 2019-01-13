@@ -19,8 +19,8 @@ class Basket extends Component {
               <h3>Корзина - ${basketPrice.toFixed(2)} ({itemsCount} шт.)</h3>
               <ol>
                 {
-                  basketItems.map((item) => (
-                    <li key={item.id}>{item.title} - ${(item.price*item.count).toFixed(2)} ({item.count} шт.)</li>
+                  basketItems.map((item, i) => (
+                    <li key={i}>{item.title} - ${(item.price*item.count).toFixed(2)} ({item.count} шт.)</li>
                   ))
                 }
               </ol>

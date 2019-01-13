@@ -4,8 +4,8 @@ import { addToBasket } from '~/src/actions/Basket';
 
 const stateToProps = (state) => ({});
 
-const dispatchToProps = (dispatch) => ({
+const actionsToProps = (dispatch) => ({
   addToBasket: data => dispatch(addToBasket(data))
 });
 
-export default connect(stateToProps, dispatchToProps)(AddToBasket);
+export default connect(stateToProps, actionsToProps)(AddToBasket);

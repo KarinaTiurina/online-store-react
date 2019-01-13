@@ -13,10 +13,9 @@ class ProductCard extends Component {
   }
 
   render() {
-    const { id, title, price, images } = this.props;
+    const { id, title, price, images, updateBasketCount } = this.props;
     const image = images[0];
     const product = {id, title, price};
-
 
     return (
       <div>
@@ -26,7 +25,10 @@ class ProductCard extends Component {
             alt={title} />
         </Link>
         <Price price={price} />
-        <AddToBasket product={product} />
+        <AddToBasket 
+          product={product} 
+          updateBasketCount={updateBasketCount}
+        />
       </div>
     );
   }

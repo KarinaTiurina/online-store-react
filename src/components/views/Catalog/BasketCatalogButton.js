@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 class BasketCatalogButton extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    const basketItems = this.props.fetchBasket();
-    let itemsCount = 0;
-    basketItems.map((item) => itemsCount += item.count);
+    const { itemsCount } = this.props;
     return (
       <button>Корзина ({itemsCount} шт.)</button>
     );

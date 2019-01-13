@@ -13,6 +13,7 @@ class AddToBasket extends Component {
 
   handleClick(e) {
     this.props.addToBasket({...this.props.product, count: this.state.count});
+    this.props.updateBasketCount(this.state.count);
   }
 
   setCount(e) {
