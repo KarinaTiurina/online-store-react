@@ -10,11 +10,9 @@ class AppRouter extends Component {
   render() {
      return (
       <Provider store={store}>
-        <Basket>
-          <Router>
-            <App />
-          </Router>
-        </Basket>
+        <Router>
+          <App />
+        </Router>
       </Provider>
     );
   } 

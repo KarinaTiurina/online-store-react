@@ -1,23 +1,14 @@
 import React, { Component } from 'react';
-import basketContext from '~/context/BasketContext';
 
 class BasketCatalogButton extends Component {
-
   render() {
+    const basketItems = this.props.fetchBasket();
     let itemsCount = 0;
-    this.context.basketItems.map((item) => itemsCount += item.count);
+    basketItems.map((item) => itemsCount += item.count);
     return (
-      <basketContext.Consumer>
-        {
-          (appState) => (
-            <button>Корзина ({itemsCount} шт.)</button>
-          )
-        }
-      </basketContext.Consumer>
+      <button>Корзина ({itemsCount} шт.)</button>
     );
   }
 };
-
-BasketCatalogButton.contextType = basketContext;
 
 export default BasketCatalogButton;

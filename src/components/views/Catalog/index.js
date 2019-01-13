@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ProductList from './ProductList';
-import BasketCatalogButton from './BasketCatalogButton';
+import BasketCatalogButton from '~/src/containers/BasketCatalogContainer';
 import { Link } from 'react-router-dom';
 import { basketPath } from '~/src/helpers/routes';
 import request from 'superagent';

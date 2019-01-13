@@ -1,6 +1,6 @@
 import { basketPath }  from '~/src/helpers/routes';
 import BasketContainer from '~/src/containers/BasketContainer';
-import { fetchBasket } from '~/src/actions/LoadBasket';
+import { fetchBasket } from '~/src/actions/Basket';
 
 export default {
   path: basketPath(),
