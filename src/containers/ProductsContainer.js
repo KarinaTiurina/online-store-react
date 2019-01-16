@@ -2,14 +2,17 @@ import { connect } from 'react-redux';
 import Catalog from '~/src/components/views/Catalog';
 import { fetchBasket } from '~/src/actions/Basket';
 
+const basketCount = (basket) => {
+  let itemsCount = 0;
+  basket.map((item) => itemsCount += item.count);
+  return itemsCount;
+};
+
 const stateToProps = (state) => ({
   items: state.products.entries,
   isFetching: state.products.isFetching,
-  error: state.products.error
+  error: state.products.error,
+  basketCount: basketCount(state.basket.item)
 });
 
-const actionsToProps = (dispatch) => ({
-  fetchBasket: data => dispatch(fetchBasket())
-});
-
-export default connect(stateToProps, actionsToProps)(Catalog);
+export default connect(stateToProps)(Catalog);

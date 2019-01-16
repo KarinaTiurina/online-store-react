@@ -9,25 +9,11 @@ import apiBase from '~/constants/apiBase.js';
 class Catalog extends Component {
   constructor(props) {
     super(props);
-
-    const basketItems = this.props.fetchBasket();
-    let itemsCount = 0;
-    basketItems.map((item) => itemsCount += item.count);
-
-    this.updateCount = (count) => {
-      const itemsInBasketCount = this.state.itemsInBasketCount + count;
-      this.setState({itemsInBasketCount});
-    };
-
-    this.state = {
-      itemsInBasketCount: itemsCount
-    };
   }
 
   render() {
     const message = this.props.location.state;
     const products = this.props.items;
-    const { itemsInBasketCount } = this.state;
 
     return (
       <div>
@@ -40,7 +26,7 @@ class Catalog extends Component {
           updateBasketCount={this.updateCount}
         />
         <br />
-        <Link to={basketPath()}><BasketCatalogButton itemsCount={itemsInBasketCount} /></Link>
+        <Link to={basketPath()}><BasketCatalogButton itemsCount={this.props.basketCount} /></Link>
       </div>
     );
   }

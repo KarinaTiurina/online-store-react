@@ -18,10 +18,3 @@ export const saveBasketState = (basketState) => {
     localStorage.setItem('basket', serializedBasketState);
   } catch (e) {}
 };
-
-export const addToBasket = (data) => {
-  const currentBasket = loadBasketState();
-  currentBasket.push(data);
-  saveBasketState(currentBasket);
-  return true;
-};
