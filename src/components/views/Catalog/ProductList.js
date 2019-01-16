@@ -9,7 +9,7 @@ class ProductList extends Component {
   }
 
   render() {
-    const { products, updateBasketCount } = this.props;
+    const { products } = this.props;
 
     return (
       <div>
@@ -17,10 +17,7 @@ class ProductList extends Component {
           {
             products.map((product) => (
               <li key={product.id}>
-                <ProductCard 
-                  {...product}
-                  updateBasketCount={updateBasketCount} 
-                />
+                <ProductCard {...product} />
               </li>
             ))
           }

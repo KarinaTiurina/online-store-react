@@ -21,10 +21,7 @@ class Catalog extends Component {
           <p className="warnMsg">{message}</p>
         }
         <h3>Каталог</h3>
-        <ProductList
-          products={products}
-          updateBasketCount={this.updateCount}
-        />
+        <ProductList products={products} />
         <br />
         <Link to={basketPath()}><BasketCatalogButton itemsCount={this.props.basketCount} /></Link>
       </div>
