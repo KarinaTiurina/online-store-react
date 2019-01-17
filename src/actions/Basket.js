@@ -1,5 +1,5 @@
 import * as types from '~/constants/actionTypes/BasketActionTypes';
-import { LOAD_BASKET, SAVE_BASKET } from '~/src/middlewares/basket';
+import { LOAD_BASKET, SAVE_BASKET, CLEAR_BASKET } from '~/src/middlewares/basket';
 
 export function fetchBasket() {
   return {
@@ -17,6 +17,16 @@ export function saveBasket(data) {
       data: data,
       types: [
         types.ADD_TO_BASKET
+      ]
+    }
+  };
+}
+
+export function clearBasket() {
+  return {
+    [CLEAR_BASKET]: {
+      types: [
+        types.CLEAR_BASKET
       ]
     }
   };

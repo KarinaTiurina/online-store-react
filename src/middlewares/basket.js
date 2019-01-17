@@ -1,8 +1,9 @@
 import { assign } from 'lodash/object';
-import { loadBasketState, saveBasketState } from '~/src/helpers/basket';
+import { loadBasketState, saveBasketState, clearBasketState } from '~/src/helpers/basket';
 
 export const LOAD_BASKET = 'LOAD_BASKET';
 export const SAVE_BASKET = 'SAVE_BASKET';
+export const CLEAR_BASKET = 'CLEAR_BASKET';
 
 const nextAction = (action, data, actionType = LOAD_BASKET) => (
   assign({}, action, data, {[actionType]: undefined})
@@ -19,8 +20,14 @@ const addToBasket = (data) => {
   return currentBasket;
 };
 
+const clearBasket = () => {
+  clearBasketState();
+
+  return [];
+};
+
 export default (store) => (next) => (action) => {
-  if (!action[LOAD_BASKET] && !action[SAVE_BASKET]) return next(action);
+  if (!action[LOAD_BASKET] && !action[SAVE_BASKET] && !action[CLEAR_BASKET]) return next(action);
 
   let basket = {};
   let requestType = null;
@@ -33,6 +40,11 @@ export default (store) => (next) => (action) => {
   if (action[SAVE_BASKET]) {
     [requestType] = action[SAVE_BASKET].types;
     basket = addToBasket(action[SAVE_BASKET].data);
+  }
+
+  if (action[CLEAR_BASKET]) {
+    [requestType] = action[CLEAR_BASKET].types;
+    basket = clearBasket();
   }
 
   next(nextAction(action, { basket, type: requestType }));

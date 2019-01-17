@@ -24,6 +24,8 @@ const validateForm = (values) => {
 }
 
 const handleSubmit = (values) => {
+  console.log('handleSubmit');
+  console.log(values);
   const { clearBasket } = values;
   delete values["clearBasket"];
   request
