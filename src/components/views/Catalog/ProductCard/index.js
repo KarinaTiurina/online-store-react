@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
-import AddToBasket from './AddToBasket';
+import AddToBasket from '~/src/containers/AddToBasket';
 import { Link } from 'react-router-dom';
 import { productPath } from '~/src/helpers/routes';
 
@@ -13,8 +13,9 @@ class ProductCard extends Component {
   }
 
   render() {
-    const { id, title, price } = this.props;
-    const image = this.props.images[0];
+    const { id, title, price, images } = this.props;
+    const image = images[0];
+    const product = {id, title, price};
 
     return (
       <div>
@@ -24,7 +25,7 @@ class ProductCard extends Component {
             alt={title} />
         </Link>
         <Price price={price} />
-        <AddToBasket {...this.props} />
+        <AddToBasket product={product} />
       </div>
     );
   }

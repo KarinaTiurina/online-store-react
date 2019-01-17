@@ -23,7 +23,7 @@ class Catalog extends Component {
         <h3>Каталог</h3>
         <ProductList products={products} />
         <br />
-        <Link to={basketPath()}><BasketCatalogButton /></Link>
+        <Link to={basketPath()}><BasketCatalogButton itemsCount={this.props.basketCount} /></Link>
       </div>
     );
   }

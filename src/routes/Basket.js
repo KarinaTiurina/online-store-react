@@ -1,8 +1,12 @@
-import BasketPage from '~/src/components/views/Basket';
 import { basketPath }  from '~/src/helpers/routes';
+import BasketContainer from '~/src/containers/BasketContainer';
+import { fetchBasket } from '~/src/actions/Basket';
 
 export default {
   path: basketPath(),
-  component: BasketPage,
-  exact: true
+  component: BasketContainer,
+  exact: true,
+  prepareData: (store) => {
+    store.dispatch(fetchBasket());
+  }
 };
