@@ -19,18 +19,22 @@ const initialState = {
 };
 
 const basket = (state = initialState, action) => {
+  let basketInfo = {};
+  if (action.type in types) {
+    basketInfo = basketCountAndPrice(action.basket);
+  }
   switch(action.type) {
     case types.FETCH_BASKET:
       return assign({}, initialState, { 
         item: action.basket, 
-        count: basketCountAndPrice(action.basket).count,
-        price: basketCountAndPrice(action.basket).price 
+        count: basketInfo.count,
+        price: basketInfo.price 
       });
     case types.ADD_TO_BASKET:
       return assign({}, initialState, { 
         item: action.basket,
-        count: basketCountAndPrice(action.basket).count,
-        price: basketCountAndPrice(action.basket).price 
+        count: basketInfo.count,
+        price: basketInfo.price 
       });
     case types.CLEAR_BASKET:
       return assign({}, initialState, {})
