@@ -13,7 +13,7 @@ const validateForm = (values) => {
     if (field.required && !values[field.name])
       errors[field.name] = 'Обязательное поле';
 
-    if (field.format) {
+    if (field.format && values[field.name]) {
       if (!field.format.test(values[field.name])) {
         errors[field.name] = 'Некорректные данные';
       }
