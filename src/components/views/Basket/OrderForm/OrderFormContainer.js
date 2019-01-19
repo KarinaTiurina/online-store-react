@@ -23,9 +23,8 @@ const validateForm = (values) => {
   return errors;
 }
 
-const handleSubmit = (values) => {
-  const { clearBasket } = values;
-  delete values["clearBasket"];
+const handleSubmit = (values, formikBag) => {
+  const { clearBasket } = formikBag.props;
   request
     .post(`${apiBase}/orders`)
     .send(values)
@@ -40,11 +39,10 @@ const handleSubmit = (values) => {
 }
 
 const OrderFormContainer = withFormik({
-  mapPropsToValues: ({ basketItems, clearBasket }) => ({
-    basketItems: basketItems,
-    clearBasket: clearBasket
+  mapPropsToValues: ({ basketItems }) => ({
+    basketItems: basketItems
   }),
-  handleSubmit: (values) => handleSubmit(values),
+  handleSubmit: (values, formikBag) => handleSubmit(values, formikBag),
   validate: (values) => validateForm(values)
 })(OrderForm);
 
