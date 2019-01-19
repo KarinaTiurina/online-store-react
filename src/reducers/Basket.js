@@ -24,13 +24,13 @@ const basket = (state = initialState, action) => {
     basketInfo = basketCountAndPrice(action.basket);
   }
   switch(action.type) {
-    case types.FETCH_BASKET:
+    case types.LOAD_BASKET:
       return assign({}, initialState, { 
         item: action.basket, 
         count: basketInfo.count,
         price: basketInfo.price 
       });
-    case types.ADD_TO_BASKET:
+    case types.SAVE_BASKET:
       return assign({}, initialState, { 
         item: action.basket,
         count: basketInfo.count,

@@ -3,7 +3,7 @@ import { withFormik } from 'formik';
 import request from 'superagent';
 
 import apiBase from '~/constants/apiBase';
-import orderFormFields from '~/constants/orderFormFields';
+import orderFormFields from './orderFormFields';
 import OrderForm from '~/src/components/views/Basket/OrderForm';
 
 const validateForm = (values) => {
@@ -24,8 +24,6 @@ const validateForm = (values) => {
 }
 
 const handleSubmit = (values) => {
-  console.log('handleSubmit');
-  console.log(values);
   const { clearBasket } = values;
   delete values["clearBasket"];
   request

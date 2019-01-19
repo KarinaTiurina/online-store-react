@@ -2,7 +2,20 @@ import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
 import { catalogPath } from '~/src/helpers/routes';
 import OrderForm from './OrderForm/OrderFormContainer';
-import { prepareBasketToOrder } from '~/src/helpers/basket';
+
+const prepareBasketToOrder = (basketItems) => {
+  const basketToOrder = [];
+
+  basketItems.map((item) => (
+    basketToOrder.push({
+      productId: item.id,
+      count: item.count,
+      pricePerProduct: item.price
+    })
+  ));
+
+  return basketToOrder;
+};
 
 class Basket extends Component {
   render() {

@@ -1,11 +1,8 @@
 import { assign } from 'lodash/object';
 import { loadBasketState, saveBasketState, clearBasketState } from '~/src/helpers/basket';
+import { BASKET, LOAD_BASKET, SAVE_BASKET, CLEAR_BASKET } from '~/constants/actionTypes/BasketActionTypes';
 
-export const LOAD_BASKET = 'LOAD_BASKET';
-export const SAVE_BASKET = 'SAVE_BASKET';
-export const CLEAR_BASKET = 'CLEAR_BASKET';
-
-const nextAction = (action, data, actionType = LOAD_BASKET) => (
+const nextAction = (action, data, actionType = BASKET) => (
   assign({}, action, data, {[actionType]: undefined})
 );
 
@@ -27,23 +24,23 @@ const clearBasket = () => {
 };
 
 export default (store) => (next) => (action) => {
-  if (!action[LOAD_BASKET] && !action[SAVE_BASKET] && !action[CLEAR_BASKET]) return next(action);
+  if (!action[BASKET]) return next(action);
 
   let basket = {};
   let requestType = null;
 
-  if (action[LOAD_BASKET]) {
-    [requestType] = action[LOAD_BASKET].types;
+  if (action[BASKET].type === LOAD_BASKET) {
+    [requestType] = [action[BASKET].type];
     basket = loadBasket(action);
   }
 
-  if (action[SAVE_BASKET]) {
-    [requestType] = action[SAVE_BASKET].types;
-    basket = addToBasket(action[SAVE_BASKET].data);
+  if (action[BASKET].type === SAVE_BASKET) {
+    [requestType] = [action[BASKET].type];
+    basket = addToBasket(action[BASKET].data);
   }
 
-  if (action[CLEAR_BASKET]) {
-    [requestType] = action[CLEAR_BASKET].types;
+  if (action[BASKET].type === CLEAR_BASKET) {
+    [requestType] = [action[BASKET].type];
     basket = clearBasket();
   }
 

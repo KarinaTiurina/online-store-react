@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import { withFormik, Form, Field } from 'formik';
 
 import TextField from './Text';
-import orderFormFields from '~/constants/orderFormFields';
+import orderFormFields from './orderFormFields';
 
 class OrderForm extends Component {
   render() {
