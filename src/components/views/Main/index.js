@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { catalogPath } from '~/src/helpers/routes';
+import { catalogPath } from 'helpers/routes';
 
 class Main extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
-import { catalogPath } from '~/src/helpers/routes';
+import { catalogPath } from 'helpers/routes';
 import OrderForm from './OrderForm/OrderFormContainer';
 
 const prepareBasketToOrder = (basketItems) => {

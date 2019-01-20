@@ -1,7 +1,7 @@
 import React from 'react';
-import { fetchProduct } from '~/src/actions/Product';
-import ProductContainer from '~/src/containers/ProductContainer';
-import { productPath }  from '~/src/helpers/routes';
+import { fetchProduct } from 'actions/Product';
+import ProductContainer from 'containers/ProductContainer';
+import { productPath }  from 'helpers/routes';
 
 export default {
   path: productPath(),

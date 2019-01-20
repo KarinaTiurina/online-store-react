@@ -1,7 +1,7 @@
-import ProductsContainer from '~/src/containers/ProductsContainer';
-import { catalogPath }  from '~/src/helpers/routes';
-import { fetchProducts } from '~/src/actions/Products';
-import { fetchBasket } from '~/src/actions/Basket';
+import ProductsContainer from 'containers/ProductsContainer';
+import { catalogPath }  from 'helpers/routes';
+import { fetchProducts } from 'actions/Products';
+import { fetchBasket } from 'actions/Basket';
 
 export default {
   path: catalogPath(),

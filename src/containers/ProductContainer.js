@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Product from '~/src/components/views/Product';
+import Product from 'components/views/Product';
 
 const stateToProps = (state) => ({
   item: state.product.entry,

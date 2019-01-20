@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from '~/AppRouter'
-import './index.css';
+import AppRouter from './AppRouter'
+import 'stylesheets/index.css';
 
 ReactDOM.render(
   <AppRouter />,

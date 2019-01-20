@@ -4,7 +4,7 @@ import { assign, pick } from 'lodash/object';
 
 import { stringify } from 'qs';
 
-import apiBase from '~/constants/apiBase';
+import apiBase from 'constants/apiBase';
 
 function APICall({ endpoint, method, query, payload }) {
   return new Promise((resolve, reject) => {

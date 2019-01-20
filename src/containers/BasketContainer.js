@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import BasketPage from '~/src/components/views/Basket';
-import { clearBasket } from '~/src/actions/Basket';
+import BasketPage from 'components/views/Basket';
+import { clearBasket } from 'actions/Basket';
 
 const stateToProps = (state) => ({
   basket: state.basket.item,  

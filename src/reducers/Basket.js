@@ -1,5 +1,5 @@
 import { assign } from 'lodash/object';
-import * as types from '~/constants/actionTypes/BasketActionTypes';
+import * as types from 'constants/actionTypes/BasketActionTypes';
 
 const basketCountAndPrice = (actionBasket) => {
   const basketItems = [...actionBasket];

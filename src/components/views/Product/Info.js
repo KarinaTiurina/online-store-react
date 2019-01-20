@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Page404 from '~/src/components/views/Page404';
+import Page404 from 'components/views/Page404';
 import Gallery from './Gallery';
 
 class Info extends Component {

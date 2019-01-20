@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { mainPath, aboutPath, catalogPath, productPath, basketPath } from '~/src/helpers/routes';
+import { mainPath, aboutPath, catalogPath, productPath, basketPath } from 'helpers/routes';
 
 const Navigation = () => (
   <ul>

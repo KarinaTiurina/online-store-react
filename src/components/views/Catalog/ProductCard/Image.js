@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import defaultImageUrl from '~/constants/defaultImageUrl'
+import defaultImageUrl from 'constants/defaultImageUrl'
 
 class Image extends Component {
   constructor(props) {

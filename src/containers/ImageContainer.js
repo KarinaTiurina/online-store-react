@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ImagePage from '~/src/components/views/Image';
+import ImagePage from 'components/views/Image';
 
 const stateToProps = (state) => ({
   item: state.image.entry,

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import AddToBasket from '~/src/components/views/Catalog/ProductCard/AddToBasket';
-import { saveBasket } from '~/src/actions/Basket';
+import AddToBasket from 'components/views/Catalog/ProductCard/AddToBasket';
+import { saveBasket } from 'actions/Basket';
 
 const stateToProps = (state) => ({
   basketCount: state.basket.count

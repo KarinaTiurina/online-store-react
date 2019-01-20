@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import APIMiddleware from '~/src/middlewares/API';
-import BasketMiddleware from '~/src/middlewares/basket';
-import reducers from '~/src/reducers';
+import APIMiddleware from 'middlewares/API';
+import BasketMiddleware from 'middlewares/basket';
+import reducers from 'reducers';
 
 const store = createStore(
   reducers,

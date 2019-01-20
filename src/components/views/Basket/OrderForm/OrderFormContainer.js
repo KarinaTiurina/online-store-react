@@ -2,9 +2,9 @@ import React from 'react';
 import { withFormik } from 'formik';
 import request from 'superagent';
 
-import apiBase from '~/constants/apiBase';
+import apiBase from 'constants/apiBase';
 import orderFormFields from './orderFormFields';
-import OrderForm from '~/src/components/views/Basket/OrderForm';
+import OrderForm from 'components/views/Basket/OrderForm';
 
 const validateForm = (values) => {
   const errors = {};

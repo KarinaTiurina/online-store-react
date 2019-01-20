@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import historyCb from '~/src/helpers/historyCb';
-import prepareData from '~/src/helpers/prepareData';
-import Navigation from '~/src/components/views/Navigation';
-import routes from '~/src/routes';
-import GalleryModal from '~src/components/views/GalleryModal';
+import historyCb from 'helpers/historyCb';
+import prepareData from 'helpers/prepareData';
+import Navigation from 'components/views/Navigation';
+import routes from 'routes';
+import GalleryModal from 'components/views/GalleryModal';
 
 const RouteWithSubroutes = (route, key) => (
   <Route key={key} {...route} />

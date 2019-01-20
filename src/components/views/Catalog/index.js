@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import ProductList from './ProductList';
 import BasketCatalogButton from './BasketCatalogButton';
 import { Link } from 'react-router-dom';
-import { basketPath } from '~/src/helpers/routes';
+import { basketPath } from 'helpers/routes';
 import request from 'superagent';
-import apiBase from '~/constants/apiBase.js';
+import apiBase from 'constants/apiBase.js';
 
 class Catalog extends Component {
   constructor(props) {
