@@ -1,7 +1,8 @@
 import { assign } from 'lodash/object';
 import * as types from '~/constants/actionTypes/BasketActionTypes';
 
-const basketCountAndPrice = (basketItems) => {
+const basketCountAndPrice = (actionBasket) => {
+  const basketItems = [...actionBasket];
   let itemsCount = 0;
   let basketPrice = 0;
   basketItems.map((item) => {
