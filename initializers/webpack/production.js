@@ -3,6 +3,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const common = require('./common');
 
@@ -39,6 +40,7 @@ module.exports = merge(common, {
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[hash].css'
-    })
+    }),
+    new ManifestPlugin()
   ]
 });

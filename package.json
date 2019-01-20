@@ -17,6 +17,8 @@
     "babel-preset-react": "^6.24.1",
     "bowser": "^2.0.0-beta.3",
     "constants": "0.0.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
     "formik": "^1.4.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
@@ -30,7 +32,8 @@
     "redux-devtools-dock-monitor": "^1.1.3",
     "redux-devtools-log-monitor": "^1.4.0",
     "redux-thunk": "^2.3.0",
-    "superagent": "^4.0.0"
+    "superagent": "^4.0.0",
+    "webpack-manifest-plugin": "^2.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",

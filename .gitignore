@@ -2,3 +2,6 @@
 /.cache
 /dist
 /package-lock.json
+
+/public/assets
+/public/manifest.json
