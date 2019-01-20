@@ -1,0 +1,19 @@
+a, a.active, a:visited, a:hover, a:link {
+  color: blue;
+}
+
+a.active {
+  color: green;
+}
+
+.warnMsg {
+  background-color: #FFC107;
+  border-radius: 2px;
+}
+
+.fieldError {
+  color: red;
+}
+
+
+/*# sourceMappingURL=main.8102888a6166195a2c72.css.map*/

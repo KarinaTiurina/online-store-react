@@ -1,6 +1,8 @@
 const path = require('path');
+const merge = require('webpack-merge');
+const common = require('./common');
 
-module.exports = {
+module.exports = merge(common, {
   mode: 'development',
 
   devServer: {
@@ -8,23 +10,8 @@ module.exports = {
     historyApiFallback: true
   },
 
-  entry: './src/index.js',
-
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(process.cwd(), 'public', 'assets'),
-    publicPath: '/assets/'
-  },
-
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        include: [
-          path.resolve(process.cwd(), 'src')
-        ],
-        use: 'babel-loader'
-      },
       {
         test: /\.css$/,
         use: [
@@ -33,12 +20,5 @@ module.exports = {
         ]
       }
     ]
-  },
-
-  resolve: {
-    modules: [
-      path.resolve(process.cwd(), 'src'),
-      'node_modules'
-    ]
   }
-};
+});
