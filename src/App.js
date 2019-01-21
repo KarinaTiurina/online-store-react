@@ -18,12 +18,12 @@ class App extends Component {
 
     this.previousLocation = this.props.location;
 
-    historyCb(window.location);
+    historyCb(this.props.store, window.location);
   }
 
   componentWillMount() {
     this.unlisten = this.props.history.listen((location, action) => {
-      historyCb(location, action);
+      historyCb(this.props.store, location, action);
     });
   }
 
