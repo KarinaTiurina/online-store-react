@@ -1,19 +1,19 @@
+/* globals __CLIENT__, __SERVER__ */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider, connect } from 'react-redux';
-import store from 'store';
-import App from './App';
+import { BrowserRouter as Router, StaticRouter } from 'react-router-dom';
 
 class AppRouter extends Component {
   render() {
-     return (
-      <Provider store={store}>
-        <Router>
-          <App />
-        </Router>
-      </Provider>
-    );
+    if (__CLIENT__)
+      return (
+        <Router>{this.props.children}</Router>
+      );
+
+    if (__SERVER__)
+      return (
+        <StaticRouter location={this.props.location} context={this.props.context}>{this.props.children}</StaticRouter>
+      );
   } 
 } 
 

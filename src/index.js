@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from './AppRouter'
+import App from './App'
 import 'stylesheets/index.css';
+import store from 'store';
 
 ReactDOM.render(
-  <AppRouter />,
+  <App store={store} />,
   document.getElementById('root')
 ); 
