@@ -14,7 +14,7 @@ export default function (store, location, action = 'PUSH') {
       state.routes.push(route);
       Object.assign(state.params, match.params);
 
-      if (__CLIENT__)        
+      if (__CLIENT__)
         Object.assign(state.query, parse(location.search.substr(1)));
 
       if (__SERVER__)
@@ -24,5 +24,5 @@ export default function (store, location, action = 'PUSH') {
     return match;
   });
 
-  prepareData(store, state);
+  return prepareData(store, state);
 }

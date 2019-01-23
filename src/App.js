@@ -7,62 +7,29 @@ import Navigation from 'components/views/Navigation';
 import routes from 'routes';
 import GalleryModal from 'components/views/GalleryModal';
 import AppRouter from './AppRouter';
+import ModalConfig from './ModalConfig';
 
 const RouteWithSubroutes = (route, key) => (
   <Route key={key} {...route} />
 );
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.previousLocation = this.props.location;
-
-    historyCb(this.props.store, window.location);
-  }
-
-  componentWillMount() {
-    this.unlisten = this.props.history.listen((location, action) => {
-      historyCb(this.props.store, location, action);
-    });
-  }
-
-  componentWillUnmount() { 
-    this.unlisten();
-  }
-
-  componentWillUpdate(nextProps) {
-    const { location } = this.props;
-
-    if (
-      nextProps.history.action !== "POP" &&
-      (!location.state || !location.state.modal)
-    ) {
-      this.previousLocation = this.props.location;
-    }
-  }
-
   render() {
-    const { location } = this.props;
 
-    const isModal = !!(
-      location.state &&
-      location.state.modal &&
-      this.previousLocation !== location
-    );
-
-    return (      
+    return (
       <Provider store={this.props.store}>
         <AppRouter location={this.props.location} context={this.props.context}>
-          <Navigation />
-          <Switch>
-            {routes.map((route, i) => RouteWithSubroutes(route, i))}
-          </Switch>
-          {isModal ? <Route path="/images/:id" component={GalleryModal} /> : null}
-        </AppRouter>      
+          <div>
+            <Navigation />
+            <Switch>
+              {routes.map((route, i) => RouteWithSubroutes(route, i))}
+            </Switch>
+            <ModalConfig />
+          </div>
+        </AppRouter>
       </Provider>
     );
   }
 }
 
-export default withRouter(App);
+export default App;

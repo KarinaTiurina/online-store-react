@@ -11,6 +11,8 @@ module.exports = merge(common, {
 
   entry: path.resolve(process.cwd(), 'initializers', 'server', 'index.js'),
 
+  devtool: 'source-map',
+
   output: {
     path: path.resolve(process.cwd(), 'build'),
     filename: 'server.js'
