@@ -15,7 +15,6 @@ const RouteWithSubroutes = (route, key) => (
 
 class App extends Component {
   render() {
-
     return (
       <Provider store={this.props.store}>
         <AppRouter location={this.props.location} context={this.props.context}>
@@ -24,7 +23,7 @@ class App extends Component {
             <Switch>
               {routes.map((route, i) => RouteWithSubroutes(route, i))}
             </Switch>
-            <ModalConfig />
+            <ModalConfig store={this.props.store} />
           </div>
         </AppRouter>
       </Provider>

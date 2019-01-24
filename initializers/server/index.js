@@ -19,6 +19,8 @@ app.get(
   (req, res) => {
     render(req, res)
       .then((result) => {
+        // console.log(req);
+        console.log(result);
         res.status(200);
         res.render(
           'index',

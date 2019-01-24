@@ -13,7 +13,7 @@ class ModalConfig extends Component {
 
     this.previousLocation = this.props.location;
 
-    historyCb(this.props.store, this.props.location);
+    // historyCb(this.props.store, this.props.location);
   }
 
   componentWillMount() {

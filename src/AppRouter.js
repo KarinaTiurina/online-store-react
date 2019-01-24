@@ -6,8 +6,6 @@ import { BrowserRouter as Router, StaticRouter } from 'react-router-dom';
 class AppRouter extends Component {
   constructor(props) {
     super(props);
-
-    console.log(__SERVER__);
   }
   render() {
     if (__CLIENT__)
