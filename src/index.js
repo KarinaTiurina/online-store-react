@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from './AppRouter'
+import App from './App'
 import 'stylesheets/index.css';
+import createStore from 'store';
 
-ReactDOM.render(
-  <AppRouter />,
-  document.getElementById('root')
+const store = createStore(window.INITIAL_STATE);
+
+ReactDOM.hydrate(
+  <App store={store} />,
+  document.getElementById('root'),
+  () => {
+    delete window.INITIAL_STATE;
+  }
 ); 
