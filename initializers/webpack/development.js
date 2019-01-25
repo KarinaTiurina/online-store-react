@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
 const common = require('./common');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: 'development',
@@ -27,6 +28,7 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       __CLIENT__: true,
       __SERVER__: false
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 });
