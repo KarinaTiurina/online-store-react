@@ -5,7 +5,7 @@ import BasketMiddleware from 'middlewares/basket';
 import reducers from 'reducers';
 
 export default function(INITIAL_STATE = {}) {
-  const composeEnhancers = __CLIENT__ && window.__REDUX_DEVTOOLS_EXTENSION__() || compose;
+  const composeEnhancers = __CLIENT__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   return createStore(
     reducers,

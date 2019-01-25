@@ -7,6 +7,6 @@ export default {
   path: productPath(),
   component: ProductContainer,
   prepareData: (store, query, params) => {
-    store.dispatch(fetchProduct(params.id));
+    return store.dispatch(fetchProduct(params.id));
   }
 };

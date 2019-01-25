@@ -8,7 +8,7 @@ export default {
   component: ProductsContainer,
   exact: true,
   prepareData: (store) => {
-    store.dispatch(fetchProducts());
     store.dispatch(fetchBasket());
+    return store.dispatch(fetchProducts());
   }
 };

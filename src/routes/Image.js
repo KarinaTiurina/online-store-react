@@ -7,6 +7,6 @@ export default {
   path: imagePath(),
   component: ImageContainer,
   prepareData: (store, query, params) => {
-    store.dispatch(fetchImage(params.id));
+    return store.dispatch(fetchImage(params.id));
   }
 };

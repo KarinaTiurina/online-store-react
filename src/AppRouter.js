@@ -7,6 +7,7 @@ class AppRouter extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     if (__CLIENT__)
       return (
