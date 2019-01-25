@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import ProductList from './ProductList';
 import BasketCatalogButton from './BasketCatalogButton';
 import { Link } from 'react-router-dom';
-import { basketPath } from '~/src/helpers/routes';
+import { basketPath } from 'helpers/routes';
 import request from 'superagent';
-import apiBase from '~/constants/apiBase.js';
+import Helmet from 'react-helmet';
+import apiBase from 'constants/apiBase.js';
 
 class Catalog extends Component {
   constructor(props) {
@@ -17,6 +18,12 @@ class Catalog extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>Каталог</title>
+          <meta name="description" content="Каталог" />
+          <link rel="shortcut icon" href="https://static.thenounproject.com/png/32240-200.png" />
+          <meta name="keywords" content="Онлайн-магазин Online Store" />
+        </Helmet>
         { message &&
           <p className="warnMsg">{message}</p>
         }

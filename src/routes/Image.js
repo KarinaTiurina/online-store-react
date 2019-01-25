@@ -1,12 +1,12 @@
 import React from 'react';
-import { fetchImage } from '~/src/actions/Image';
-import ImageContainer from '~/src/containers/ImageContainer';
-import { imagePath }  from '~/src/helpers/routes';
+import { fetchImage } from 'actions/Image';
+import ImageContainer from 'containers/ImageContainer';
+import { imagePath }  from 'helpers/routes';
 
 export default {
   path: imagePath(),
   component: ImageContainer,
   prepareData: (store, query, params) => {
-    store.dispatch(fetchImage(params.id));
+    return store.dispatch(fetchImage(params.id));
   }
 };

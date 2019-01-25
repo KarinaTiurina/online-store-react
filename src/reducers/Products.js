@@ -1,5 +1,5 @@
 import { assign } from 'lodash/object';
-import * as types from '~/constants/actionTypes/ProductsActionTypes';
+import * as types from 'constants/actionTypes/ProductsActionTypes';
 
 const initialState = {
   isFetching: false,

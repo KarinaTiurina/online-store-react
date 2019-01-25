@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import ImageContainer from '~/src/containers/ImageContainer';
-import Page404 from '~/src/components/views/Page404';
+import ImageContainer from 'containers/ImageContainer';
+import Page404 from 'components/views/Page404';
 import { withRouter } from 'react-router-dom';
 
 class GalleryModal extends Component {

@@ -1,5 +1,5 @@
-import MainPage from '~/src/components/views/Main';
-import { mainPath}  from '~/src/helpers/routes';
+import MainPage from 'components/views/Main';
+import { mainPath}  from 'helpers/routes';
 
 export default {
   path: mainPath(),

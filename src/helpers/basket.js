@@ -1,4 +1,4 @@
-import { BasketStorage } from '~/constants/localStorage';
+import { BasketStorage } from 'constants/localStorage';
 
 export const loadBasketState = () => {
   try {

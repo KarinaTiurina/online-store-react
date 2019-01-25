@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import request from 'superagent';
-import apiBase from '~/constants/apiBase.js';
+import apiBase from 'constants/apiBase.js';
 import Info from './Info';
 
 class Image extends Component {

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
-import AddToBasket from '~/src/containers/AddToBasket';
+import AddToBasket from 'containers/AddToBasket';
 import { Link } from 'react-router-dom';
-import { productPath } from '~/src/helpers/routes';
+import { productPath } from 'helpers/routes';
 
 class ProductCard extends Component {
   constructor(props) {

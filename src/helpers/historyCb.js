@@ -1,10 +1,10 @@
+/* globals __CLIENT__, __SERVER__ */
 import { matchPath } from 'react-router';
 import { parse } from 'qs';
-import prepareData from '~/src/helpers/prepareData';
-import routes from '~/src/routes';
-import store from '~/src/store';
+import prepareData from 'helpers/prepareData';
+import routes from 'routes';
 
-export default function (location, action = 'PUSH') {
+export default function (store, location, action = 'PUSH') {
   const state = { params: {}, query: {}, routes: [] };
 
 
@@ -13,11 +13,16 @@ export default function (location, action = 'PUSH') {
     if (match) {
       state.routes.push(route);
       Object.assign(state.params, match.params);
-      Object.assign(state.query, parse(location.search.substr(1)));
+
+      if (__CLIENT__)
+        Object.assign(state.query, parse(location.search.substr(1)));
+
+      if (__SERVER__)
+        state.query = location.query;
     }
 
     return match;
   });
 
-  prepareData(store, state);
+  return prepareData(store, state);
 }

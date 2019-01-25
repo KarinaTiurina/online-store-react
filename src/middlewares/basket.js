@@ -1,6 +1,6 @@
 import { assign } from 'lodash/object';
-import { loadBasketState, saveBasketState, clearBasketState } from '~/src/helpers/basket';
-import { BASKET, LOAD_BASKET, SAVE_BASKET, CLEAR_BASKET } from '~/constants/actionTypes/BasketActionTypes';
+import { loadBasketState, saveBasketState, clearBasketState } from 'helpers/basket';
+import { BASKET, LOAD_BASKET, SAVE_BASKET, CLEAR_BASKET } from 'constants/actionTypes/BasketActionTypes';
 
 const nextAction = (action, data, actionType = BASKET) => (
   assign({}, action, data, {[actionType]: undefined})

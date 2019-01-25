@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Image from './Image';
-import defaultImageUrl from '~/constants/defaultImageUrl'
+import defaultImageUrl from 'constants/defaultImageUrl';
 
 class Gallery extends Component {
   constructor(props) {

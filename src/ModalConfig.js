@@ -1,31 +1,26 @@
-import React, { Component } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
-import historyCb from '~/src/helpers/historyCb';
-import prepareData from '~/src/helpers/prepareData';
-import Navigation from '~/src/components/views/Navigation';
-import routes from '~/src/routes';
-import GalleryModal from '~src/components/views/GalleryModal';
+import React, { Component, Fragment } from 'react';
+import { Route, withRouter } from 'react-router-dom';
+import historyCb from 'helpers/historyCb';
+import GalleryModal from 'components/views/GalleryModal';
 
 const RouteWithSubroutes = (route, key) => (
   <Route key={key} {...route} />
 );
 
-class App extends Component {
+class ModalConfig extends Component {
   constructor(props) {
     super(props);
 
     this.previousLocation = this.props.location;
-
-    historyCb(window.location);
   }
 
   componentWillMount() {
     this.unlisten = this.props.history.listen((location, action) => {
-      historyCb(location, action);
+      historyCb(this.props.store, location, action);
     });
   }
 
-  componentWillUnmount() { 
+  componentWillUnmount() {
     this.unlisten();
   }
 
@@ -50,15 +45,11 @@ class App extends Component {
     );
 
     return (
-      <div>
-        <Navigation />
-        <Switch>
-          {routes.map((route, i) => RouteWithSubroutes(route, i))}
-        </Switch>
+      <Fragment>
         {isModal ? <Route path="/images/:id" component={GalleryModal} /> : null}
-      </div>
+      </Fragment>
     );
   }
 }
 
-export default withRouter(App);
+export default withRouter(ModalConfig);

@@ -1,4 +1,4 @@
-import * as types from '~/constants/actionTypes/BasketActionTypes';
+import * as types from 'constants/actionTypes/BasketActionTypes';
 
 export function fetchBasket() {
   return {
